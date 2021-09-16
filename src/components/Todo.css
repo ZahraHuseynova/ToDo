@@ -5,3 +5,13 @@
   font-size: larger !important;
   padding-left: 15px !important;
 }
+
+.clickIcon {
+  text-align: center !important;
+  align-items: center !important;
+  margin-left: 5px !important;
+}
+
+.text {
+  padding-top: 7px;
+}

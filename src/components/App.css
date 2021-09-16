@@ -8,3 +8,9 @@ h1 {
 i {
   color: brown;
 }
+
+.clickIcon {
+  text-align: center !important;
+  align-items: center !important;
+  margin-right: 5px !important;
+}
