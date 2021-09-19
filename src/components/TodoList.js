@@ -10,7 +10,7 @@ const TodoList =(props)=> {
                 {
                 props.addList.map((task,index)=>{
                     const onClickCallBack=()=>{
-                        props.removeTodo();
+                        props.removeTodo(index);
                     }
                                        
                     return(
