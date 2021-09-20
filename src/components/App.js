@@ -4,22 +4,37 @@ import "./App.css";
 import { useState } from "react";
 
 const App = () => {
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([
+        {
+            text:"Water plants",
+            isCompleted:"false"
+        },
+        {
+            text:"Complete the task",
+            isCompleted:"false"
+        },
+        {
+            text:"Review mistakes",
+            isCompleted:"false"
+        }]);
+        
     const [todo, setTodo] = useState("");
 
     const addTodo = () => {
-        // const copyTodos = [...todos, todo]
-        //copyTodos.push(todo);
-
-        setTodos([...todos, todo]);
-        setTodo("");
-
         
+        setTodos([...todos, todo]);
+        setTodo("");       
     };
 
     const  removeTodo = (index ) =>{
         const newTodos = [...todos];
         newTodos.splice(index,1);
+        setTodos(newTodos);
+    };
+
+    const completeTodo = (index)=> {
+        const newTodos = [...todos];
+        newTodos[index].isCompleted = true;
         setTodos(newTodos);
     };
 
@@ -30,7 +45,7 @@ const App = () => {
             <div className=" inputBar ui container">
                 <h1>ToDo App</h1>
                 <div className="ui right icon input">
-                    <input
+                    <input 
                         type="text"
                         placeholder="Add your task..."
                         value={todo}
@@ -44,6 +59,8 @@ const App = () => {
                 <TodoList 
                 addList={todos} 
                 removeTodo={removeTodo}
+                completeTodo={completeTodo}
+                completeItem={todos.isCompleted}
                 />
             </div>
         </div>
