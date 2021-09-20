@@ -4,25 +4,17 @@ import "./App.css";
 import { useState } from "react";
 
 const App = () => {
-    const [todos, setTodos] = useState([
-        {
-            text:"Water plants",
-            isCompleted:"false"
-        },
-        {
-            text:"Complete the task",
-            isCompleted:"false"
-        },
-        {
-            text:"Review mistakes",
-            isCompleted:"false"
-        }]);
+    const [todos, setTodos] = useState([]);
         
     const [todo, setTodo] = useState("");
 
     const addTodo = () => {
         
-        setTodos([...todos, todo]);
+        setTodos([...todos, {
+            todo: todo,
+            isCompleted:false
+        }
+        ]);
         setTodo("");       
     };
 
@@ -32,10 +24,17 @@ const App = () => {
         setTodos(newTodos);
     };
 
-    const completeTodo = (index)=> {
-        const newTodos = [...todos];
-        newTodos[index].isCompleted = true;
-        setTodos(newTodos);
+    const completeTodo = (task,index)=> {
+        const completedArr = [...todos];
+        setTodos (completedArr.filter((element)=>{
+            if(completedArr.indexOf(element)===index){
+                element.isCompleted=task.isCompleted;
+            }
+            return element;
+        }))
+        // const newTodos = [...todos];
+        // newTodos[index].isCompleted = true;
+        // setTodos(newTodos);
     };
 
     
@@ -59,8 +58,7 @@ const App = () => {
                 <TodoList 
                 addList={todos} 
                 removeTodo={removeTodo}
-                completeTodo={completeTodo}
-                completeItem={todos.isCompleted}
+                completeTodo={completeTodo}                
                 />
             </div>
         </div>
