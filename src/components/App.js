@@ -28,7 +28,7 @@ const App = () => {
         const completedArr = [...todos];
         setTodos (completedArr.filter((element)=>{
             if(completedArr.indexOf(element)===index){
-                element.isCompleted=task.isCompleted;
+                element.isCompleted=!element.isCompleted;
             }
             return element;
         }))

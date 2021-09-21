@@ -13,12 +13,11 @@ const TodoList =(props)=> {
                         props.removeTodo(index);
                         
                     };
-                    const onClickComplete=(e)=>{
-                        task.isComplete=e.target.completed;
+                    const onClickComplete=()=>{
                         props.completeTodo(task,index)
                     };
                     
-                    let completedTask = task.isComplete === true? "line-through":"";
+                    let completedTask = task.isCompleted === true? "line-through":"";
                     return(
 
                         <div key={index}   className="item" style={{textDecoration: completedTask}}>
@@ -28,7 +27,7 @@ const TodoList =(props)=> {
                                 <div className="ui button" onClick={onClickCallBack}><i className=" clickIcon trash alternate icon"></i></div>
                             </div>
                             <div className="text content">
-                                {task}
+                                {task.todo}
                             </div>
                         </div>
                     )
