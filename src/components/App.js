@@ -1,7 +1,9 @@
-import React from "react";
+import React,{}from "react";
 import TodoList from "./TodoList";
 import "./App.css";
 import { useState } from "react";
+import {connect} from 'react-redux';
+import {addTodo}from '../actions'
 
 const App = () => {
     const [todos, setTodos] = useState([]);
@@ -65,4 +67,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default connect()(App);
