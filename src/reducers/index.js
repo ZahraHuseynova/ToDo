@@ -1,12 +1,10 @@
 
 import { combineReducers } from 'redux';
+import { inputReducer } from './inputReducer';
+import { todoReducer } from './todoReducer';
 
 
-const todos = (state=[],action)=>{
-    if (action.type === "ADD_TODO"){
-        return[...state,action.todo];
-    }
-    return state;
-};
-
-export default combineReducers({todos});
+export default combineReducers({
+    todos:todoReducer,
+    todo: inputReducer
+});
